@@ -1,0 +1,47 @@
+.App{
+    font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
+    /* cursor: url('../../assets/badge.svg'), auto;	 */
+}
+
+.Home{
+    font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
+    /* cursor: url('../../../public/assets/badge.svg'), auto;	 */
+    background-color: rgb(247, 247, 250);
+    height: 100vh;
+    /* overflow-x:scroll; */
+    /* background-image: url('../../../public/assets/heatmaporiginal.png'); */
+    background-repeat: repeat;	
+    /* background-size: 2000px 1261.2px; */
+    background-size: 100vw auto;
+    padding-top: 10vh;
+
+}
+
+
+a {
+    color: #fc5200;
+    }
+
+
+/* visited link */
+a:visited {
+    color: #fc5200;
+  }
+  
+/* mouse over link */
+a:hover {
+color: #fc5200;
+/* cursor: url('../../../public/assets/badge.svg'), auto;	 */
+}
+
+/* selected link */
+a:active {
+color: #fc5200;
+}
+
+
+
+.body_content_1{
+    background-color: #fc5200;
+}
+

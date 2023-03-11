@@ -1,0 +1,218 @@
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueBook.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedBook.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueBookItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedBookItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 201;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedExtraThin.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 201;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtraThin.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 201;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedExtraThinItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 201;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtraThinItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 250;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedThin.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 250;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueThin.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 250;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedThinItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 250;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueThinItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedLight.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueLight.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedLightItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueLightItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedMedium.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueMedium.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedMediumItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueMediumItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueDemi.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedDemi.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueDemiItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedDemiItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueBoldItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedBoldItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedExtraBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtraBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 800;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedExtraBoldItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 800;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtraBoldItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueBlack.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedBlack.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 900;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueBlackItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-style: italic;
+    font-weight: 900;
+    src: local('Maison Neue'), url('https://fonts.cdnfonts.com/s/29652/MaisonNeueExtendedBlackItalic.woff') format('woff');
+}
+
+

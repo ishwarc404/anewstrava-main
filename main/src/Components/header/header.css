@@ -7,13 +7,12 @@
     /* Set the navbar to fixed position */
     /* top: 0; 
     Position the navbar at the top of the page */
-    top: 0;
+    /* top: 0; */
     width: 100%; 
     /* Full width */
     z-index: 1000;
     /* height: 6vh; */
     position: fixed;
-
 
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.8);
@@ -22,6 +21,7 @@
     backdrop-filter: blur(7.9px);
     -webkit-backdrop-filter: blur(7.9px);
     /* height: 6vh; */
+    /* padding-bottom: 5px; */
 
 }
 
@@ -33,7 +33,9 @@
 .header_content_1
 {
     padding-left: 30px;
-    font-size: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* font-size: 35px; */
 }
 
 .ishwar_image{
@@ -50,7 +52,7 @@
 .header_content_2
 {
     padding-right: 30px;
-    padding-top: 2vh;
+    padding-top: 0vh;
     font-size: 20px;
 }
 

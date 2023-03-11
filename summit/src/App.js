@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './App.css'
 function App() {
 
   return (
-      <div>hi from Summit</div>
+      <div className='SummitApp'></div>
   );
 }
 

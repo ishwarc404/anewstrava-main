@@ -1,0 +1,48 @@
+.ProfileApp{
+    font-family: 'Maison Neue';
+    width: 20vw;
+    height: 38vh;
+    /* margin: 5vw; */
+    border-radius: 4px;
+    margin:10px 24px 14px 0px;
+    padding: 24px 0px 0px;
+}
+.information-div-profile {
+    font-family: 'Maison Neue';
+    background-color: #ffffff;
+    width: 20vw;
+    height: 38vh;
+    /* margin: 5vw; */
+    border-radius: 4px;
+    box-shadow:hsl(240 16% 6% / 0.04) 0px 8px 24px 0px;
+    font-size: 14px;
+    line-height:18px;
+    /* margin:64px 24px 14px 0px; */
+    /* padding: 24px 0px 0px; */
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.information-div-profile-athlete-image {
+    position: absolute;
+    border-radius: 50%;
+    position: absolute;
+    top: 10vh;
+    left: 16vw;
+    width: 70px;
+}
+
+.profile_a_tag {
+    color: black;
+}
+
+.information-div-profile-text-container {
+    color: black;
+}
+
+.athlete-name {
+    margin-top: 4.3vw;
+    font-size: 1.5vw;
+
+}

@@ -5,6 +5,8 @@ import SummitApp from "summit/App"
 import ProfileInformation from "profile/App"
 import './App.css'
 
+import ActivityFeed from './Components/activityFeed/activityFeed';
+
 function App() {
 
   return (
@@ -13,7 +15,7 @@ function App() {
           <Header></Header>
           <div className='d-flex justify-content-center Home'>
             <div><ProfileInformation/></div>
-            <div>yo</div>
+            <div><ActivityFeed/></div>
             <div>
             <SummitApp/>
             </div>

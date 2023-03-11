@@ -1,0 +1,13 @@
+.SummitApp{
+    font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
+    /* background-color: black; */
+    width: 20vw;
+    height: 38vh;
+    margin: 5vw;
+    border-radius: 4px;
+    /* box-shadow:hsl(240 16ßß% 6% / 0.04) 0px 8px 24px 0px; */
+    font-size: 14px;
+    line-height:18px;
+    margin:64px 0px 24px;
+    padding: 24px 0px 0px;
+}

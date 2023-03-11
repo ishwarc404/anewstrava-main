@@ -6,6 +6,7 @@
     border-radius: 4px;
     margin:10px 24px 14px 0px;
     padding: 24px 0px 0px;
+    /* overflow: hidden; */
 }
 .information-div-profile {
     font-family: 'Maison Neue';

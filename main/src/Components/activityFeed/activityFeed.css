@@ -1,8 +1,20 @@
 .ActivityFeed{
     font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
-    background-color: #ffffff;
     width: 40vw;
     height: 100vh;
+    /* margin: 5vw; */
+    border-radius: 4px;
+    font-size: 14px;
+    line-height:18px;
+    margin:35px 24px 14px 0px;
+    padding: 0px 0px 0px;
+}
+
+.Activity{
+    font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
+    background-color: #ffffff;
+    width: 40vw;
+    height: 30vh;
     /* margin: 5vw; */
     border-radius: 4px;
     box-shadow:hsl(240 16% 6% / 0.04) 0px 8px 24px 0px;

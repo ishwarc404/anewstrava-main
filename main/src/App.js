@@ -10,7 +10,7 @@ import ActivityFeed from './Components/activityFeed/activityFeed';
 function App() {
 
   return (
-      <div>
+      <div className='App'>
         <div>
           <Header></Header>
           <div className='d-flex justify-content-center Home'>

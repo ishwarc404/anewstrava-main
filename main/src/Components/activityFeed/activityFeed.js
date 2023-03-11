@@ -8,6 +8,30 @@ function ActivityFeed() {
 
   return (
     <div className='ActivityFeed'>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+      <div className='Activity'>
+      </div>
+       <div className='Activity'>
+      </div> <div className='Activity'>
+      </div>
+      
     </div>
 
   );

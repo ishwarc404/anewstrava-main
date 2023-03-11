@@ -1,19 +1,27 @@
 .App{
     font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
     /* cursor: url('../../assets/badge.svg'), auto;	 */
+    /* background-color: rgb(247, 247, 250); */
+    /* overflow: hidden; */
+    height:max-content;
+    /* position: relative; */
+    /* top: 14vh; */
+    /* left: 15vw; */
+    /* scr */
+    /* width: 1000vw; */
+    /* overflow: hidden; */
 }
 
 .Home{
     font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
     /* cursor: url('../../../public/assets/badge.svg'), auto;	 */
-    background-color: rgb(247, 247, 250);
-    height: 100vh;
-    /* overflow-x:scroll; */
     /* background-image: url('../../../public/assets/heatmaporiginal.png'); */
-    background-repeat: repeat;	
+    /* background-repeat: repeat;	 */
     /* background-size: 2000px 1261.2px; */
-    background-size: 100vw auto;
+    /* background-size: 100vw auto; */
     padding-top: 10vh;
+    height:auto;
+    background-color: rgb(247, 247, 250);
 
 }
 

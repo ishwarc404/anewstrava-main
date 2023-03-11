@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Components/header/header'
 import SummitApp from "summit/App"
-
+import ProfileInformation from "profile/App"
 import './App.css'
+
 function App() {
 
   return (
@@ -11,11 +12,11 @@ function App() {
         <div>
           <Header></Header>
           <div className='d-flex justify-content-center Home'>
-            <div>Profile infomation</div>
-            <div>Activities</div>
-            <di>
+            <div><ProfileInformation/></div>
+            <div>yo</div>
+            <div>
             <SummitApp/>
-            </di>
+            </div>
           </div>
         </div>
       </div>

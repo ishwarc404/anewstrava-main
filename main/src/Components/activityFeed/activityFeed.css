@@ -14,7 +14,7 @@
     /* font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif; */
     background-color: #ffffff;
     width: 40vw;
-    height: 30vh;
+    height: auto;
     /* margin: 5vw; */
     border-radius: 4px;
     box-shadow: hsl(240 16% 6% / 0.04) 0px 8px 24px 0px;
@@ -24,12 +24,25 @@
     padding: 0px 0px 0px;
 }
 
+.activity-map {
+    padding: 20px;
+}
+
 .activity-div-profile-athlete-image {
 
     border-radius: 50%;
     width: 50px;
     margin: 20px;
     margin-left: 30px;
+    position: relative;
+    top:0px;
+    left: 0px;
+}
+
+.activity-div-athlete-badge {
+    position: absolute;
+    top:15.5vh;
+    left: 34vw;
 }
 
 

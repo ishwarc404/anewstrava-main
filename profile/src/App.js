@@ -4,7 +4,7 @@ import './App.css'
 
 import React, { useState, useEffect } from 'react';
 import ishwarprofileimage from './assets/ishwarprofileimage.jpeg'
-// import premiumBadge from './assets/badges.svg';
+import premiumBadge from './assets/badges.svg';
 
 
 var athleteProfileData = {
@@ -60,9 +60,30 @@ function App() {
         <div className='information-div-profile '>
           <div className='d-flex justify-content-center information-div-profile-text-container'>
             <div className='athlete-name'><b>{athleteProfileData['firstname'] + ' ' + athleteProfileData['lastname']}</b></div>
+            <img className='athlete-badge' src={premiumBadge}></img>
+          </div>
+          <div className='d-flex justify-content-center info-part-parent'>
+            <div className='info-part'><div className='info-part-name'>Following</div><div className='d-flex justify-content-center info-part-number'>296</div></div>
+            <div className='info-part-divider'></div>
+            <div className='info-part'><div className='info-part-name'>Followers</div><div className='d-flex justify-content-center info-part-number'>116</div></div>
+            <div className='info-part-divider'></div>
+            <div className='info-part'><div className='info-part-name'>Activities</div><div className='d-flex justify-content-center info-part-number'>950</div></div>
+
+          </div>
+          <div className='info-latest-activity'>
+            <div className='info-latest-activity-header'>Latest Activity</div>
+            <div className='d-flex justify-content-start'>
+              <div className='info-latest-activity-acitivity-name'>Afternoon Run</div>
+              <div className='info-latest-activity-acitivity-dot'>&#8729;</div>
+              <div className='info-latest-activity-acitivity-date'>Today</div>
+            </div>
+          </div>
+          <div className='info-training-log'>
+              <div className='info-training-log-name'>Your Training Log</div>
           </div>
         </div>
         <img className='information-div-profile-athlete-image' src={ishwarprofileimage}></img>
+
     </div>
   );
 }

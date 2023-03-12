@@ -6,7 +6,7 @@
     border-radius: 4px;
     font-size: 14px;
     line-height: 18px;
-    margin: 35px 24px 14px 0px;
+    margin: 0px 24px 14px 0px;
     padding: 0px 0px 0px;
 }
 
@@ -20,8 +20,8 @@
     box-shadow: hsl(240 16% 6% / 0.04) 0px 8px 24px 0px;
     font-size: 14px;
     line-height: 18px;
-    margin: 35px 24px 14px 0px;
-    padding: 0px 0px 0px;
+    margin: 10px 24px 14px 0px;
+    /* padding: 0px 0px 0px; */
 }
 
 .activity-map {
@@ -41,8 +41,8 @@
 
 .activity-div-athlete-badge {
     position: absolute;
-    top:15.5vh;
-    left: 34vw;
+    top:15.7vh;
+    left: 33.5vw;
 }
 
 
@@ -110,4 +110,14 @@
     font-size: 1.3vw;
     font-weight: 400;
     margin-top: 3px;
+}
+
+.activity-select {
+    font-size: 1.2vw;
+    font-weight: 350;
+    border: none;
+    background-color: #ffffff;
+    background-color: rgb(247, 247, 250);
+    margin-right: 20px;
+    /* margin-left: 30px; */
 }

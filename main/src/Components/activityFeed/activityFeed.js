@@ -101,6 +101,32 @@ function ActivityFeed() {
 
   return (
     <div className='ActivityFeed'>
+      <div className='d-flex justify-content-start'>
+        <div>
+          <select className='activity-select' name="activity-names" id="activity-names">
+            <option value="all">All Sports  &nbsp;</option>
+            <option value="run">Run</option>
+            <option value="bike">Bike</option>
+            <option value="swim">Swim</option>
+          </select>
+        </div>
+        <div>
+          <select className='activity-select' name="activity-names" id="activity-names">
+            <option value="allfriends">All Activities</option>
+            <option value="following">My Activities</option>
+            <option value="following">Following</option>
+            <option value="followers">Followers</option>
+          </select>
+        </div>
+        <div>
+          <select className='activity-select' name="activity-names" id="activity-names">
+            <option value="alltypes">All Types</option>
+            <option value="workouts">Workouts</option>
+            <option value="races">Races</option>
+            <option value="commutes">Commutes</option>
+          </select>
+        </div>
+      </div>
       <div className='Activity'>
         <div className='d-flex justify-content-start'>
           <div>
@@ -120,11 +146,11 @@ function ActivityFeed() {
               <div className='activity-div-info-part-parent-time'><div className='activity-div-info-part-time'>Time</div><div className='d-flex justify-content-center activity-info-part-number'>34 mins</div></div>
 
             </div>
-            
+
           </div>
         </div>
         <div className='activity-map d-flex justify-content-center'>
-        <img src={finalimageURL} />
+          <img src={finalimageURL} />
         </div>
       </div>
     </div>

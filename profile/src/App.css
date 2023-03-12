@@ -13,7 +13,7 @@
     font-family: 'Maison Neue';
     background-color: #ffffff;
     width: 20vw;
-    height: 38vh;
+    height: 40vh;
     /* margin: 5vw; */
     border-radius: 4px;
     box-shadow:hsl(240 16% 6% / 0.04) 0px 8px 24px 0px;
@@ -39,7 +39,7 @@
 .athlete-badge {
     position: absolute;
     top: -4.8vh;
-    left: 10.5vw;
+    left: 11vw;
     z-index: 101;
 
 }

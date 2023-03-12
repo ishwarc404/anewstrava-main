@@ -32,7 +32,7 @@
 
 .header_content_1
 {
-    padding-left: 30px;
+    padding-left: 8vw;
     padding-top: 15px;
     padding-bottom: 15px;
     /* font-size: 35px; */
@@ -194,3 +194,14 @@ visibility: hidden;
         display: block;
     }
   }
+
+
+.search_icon {
+    /* background-position: 0 33.333%;ß */
+    padding-top: 15px;
+    /* padding-left: 15px; */
+    padding-bottom: 15px;
+    fill: #242428;
+    width:18px;
+    margin-left: 20px;
+}

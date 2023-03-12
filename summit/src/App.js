@@ -5,8 +5,12 @@ import './App.css'
 
 var summitHistory = [false,true,false,false,true,false,true,true,true,false,true,false,true,false,false,true,true,true,false,true,false,true,false,true,false,false,true,true,]
 
+const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+
+
 function App() {
 
+  
   return (
     <div className='SummitApp'>
       <div className='summit-header'>SUMMMIT</div>
@@ -69,6 +73,16 @@ function App() {
         </tr>
       </tbody>
     </table>
+      </div>
+      <div className='d-flex justify-content-around summit-count'>
+        <div> <div className='summit-count-label'>Last 4 Weeks</div>
+        <div className='summit-count-value'>{countOccurrences(summitHistory, true)}</div>
+        <div className='summit-count-label-2'>Total Activities</div></div>
+       
+       <div className='summit-buttons'>
+        <div><button className='compare-button'>Compare</button></div>
+        <div><button className='new-button'>Add a new summit</button></div>
+       </div>
       </div>
     </div>
   );

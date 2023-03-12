@@ -3,7 +3,7 @@
     /* background-color: black; */
     background-color: #ffffff;
     width: 20vw;
-    height: 38vh;
+    height: fit-content;
     margin: 5vw;
     border-radius: 4px;
     /* box-shadow:hsl(240 16ßß% 6% / 0.04) 0px 8px 24px 0px; */
@@ -65,7 +65,7 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: #fc5200;
+    background-color: #000000;
 }
 
 .summit-activity-marker-invisible {
@@ -74,4 +74,62 @@
     border-radius: 50%;
     background-color: #a2a2a2f8;
     border: 6px solid white;
+}
+
+.summit-count-label {
+    padding-left: 30px;
+    padding-right:30px;
+    padding-bottom: 5px;
+    padding-top: 30px;
+    font-weight: 400;
+    font-size: 0.8vw;
+}
+
+.summit-count-value {
+    padding-left: 30px;
+    padding-right:30px;
+    padding-bottom: 5px;
+    padding-top: 25px;
+    font-weight: 650;
+    font-size: 4.5vw;
+}
+
+
+.summit-count-label-2 {
+    padding-left: 30px;
+    padding-right:30px;
+    padding-bottom: 25px;
+    padding-top: 20px;
+    font-weight: 400;
+    font-size: 0.8vw;
+    color: #858484fc;
+}
+
+
+.summit-buttons{
+    padding-top: 50px;
+    font-size: 0.7vw;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.compare-button{
+    background-color: #e4e4e4f8;
+    color: #000;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.new-button{
+    background-color: #e4e4e4f8;
+    color: #000;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    padding-left:5px;
+    padding-right:5px;
+    margin-top: 10px;
 }

@@ -126,9 +126,11 @@
 }
 
 .info-training-log-name{
-    font-size: 1vw;
+    font-size: 0.9vw;
     font-weight: 400;
     margin-right: 5px;
     margin-top: 15px;
     margin-left: 25px;
 }
+
+

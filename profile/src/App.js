@@ -23,6 +23,8 @@ var apiErrorOccured = false;
 const refreshURL = 'https://www.strava.com/oauth/token?client_id=89361&client_secret=4a5ec7c37ec0e2381f2bb695d931242cff11edbb&refresh_token=c5246811c4f2f0c60ff41831355892a639a6b4c0&grant_type=refresh_token'
 var accessToken = null;
 
+
+
 function App() {
 
   const [, setState] = useState();

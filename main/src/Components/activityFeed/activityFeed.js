@@ -92,7 +92,7 @@ function ActivityFeed() {
   useEffect(() => {
 
     var polyline_encode = encodeURIComponent(tempActivityData['map']['summary_polyline']);
-    finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
+    finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
     console.log(finalimageURL)
     setState({});
     // console.log(polyline.encode(polyline.decode(tempActivityData['map']['summary_polyline'])));

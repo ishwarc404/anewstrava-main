@@ -1,6 +1,7 @@
 .SummitApp{
     font-family: 'Maison Neue', 'Helvetica', Arial, sans-serif;
     /* background-color: black; */
+    background-color: #ffffff;
     width: 20vw;
     height: 38vh;
     margin: 5vw;
@@ -8,6 +9,69 @@
     /* box-shadow:hsl(240 16ßß% 6% / 0.04) 0px 8px 24px 0px; */
     font-size: 14px;
     line-height:18px;
-    margin:64px 0px 24px;
-    padding: 24px 0px 0px;
+    margin: 35px 24px 14px 0px;
+    /* padding: 24px 0px 0px; */
+}
+
+.summit-header {
+    font-size: 1.5vw;
+    font-weight: 500;
+    padding: 30px;
+}
+
+.summit-select {
+    font-size: 1vw;
+    font-weight: 500;
+    border: none;
+    margin-left: 30px;
+}
+
+.summit-table {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.summit-table-heading-label-m {
+    padding-right: 10px;
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 1vw;
+}
+
+.summit-table-heading-label {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 1vw;
+}
+
+.summit-table-activity-label-start {
+    padding-right: 10px;
+    padding-bottom: 5px;
+    font-weight: 400;
+    font-size: 1vw;
+}
+
+.summit-table-activity-label {
+    padding-left: 10px;
+    padding-right:10px;
+    padding-bottom: 5px;
+    font-weight: 400;
+    font-size: 1vw;
+}
+
+.summit-activity-marker {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fc5200;
+}
+
+.summit-activity-marker-invisible {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #a2a2a2f8;
+    border: 6px solid white;
 }

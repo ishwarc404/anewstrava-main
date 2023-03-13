@@ -34,7 +34,7 @@ function App() {
       summitHistoryValues = response.data
       setState({});
     });
-  })
+  },[])
   
   return (
     <div className='SummitApp'>

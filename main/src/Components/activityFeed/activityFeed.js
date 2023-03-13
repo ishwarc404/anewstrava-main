@@ -87,6 +87,7 @@ var tempActivityData = {
 var pointsArray = []
 var finalimageURL;
 var activityFeedActivities = []
+var reloadActivities = false
 
 
 function convertSeconds(value) {
@@ -121,9 +122,9 @@ function ActivityFeed() {
       var lengthOfData = response.data.length;
       for (var i = 0; i < lengthOfData; i++) {
         tempActivityData = response.data[i];
-
+        console.log(tempActivityData)
         var activityURL = `https://strava.com/activities/${tempActivityData['id']}`
-        var polyline_encode = encodeURIComponent(tempActivityData['map']['summary_polyline']);
+        var polyline_encode = encodeURIComponent(tempActivityData['map']);
         if (polyline_encode != '') {
           finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
         }

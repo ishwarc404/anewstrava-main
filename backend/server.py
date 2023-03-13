@@ -1,17 +1,25 @@
 from flask import Flask
 import json
 app = Flask(__name__)
-
+import dbaccess
 from flask_cors import CORS,cross_origin
 cors = CORS(app)
+#first start server, then 
+#open -a Google\ Chrome --args --disable-web-security --/
 
 allActivities = []
 
 def queryAllActivities():
+
+    return dbaccess.readAllAthleteActivities()
+
+
+    #commenting the following out and switching to db
     with open('./importedData.json') as f:
         data = json.load(f)
-    print(data)
     return data
+
+
 
 
 @app.route('/getAllActivities')

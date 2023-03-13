@@ -21,7 +21,7 @@ def setupAthleteActivityTable():
     db.create_tables([Activity])
 
 
-propertiesToBeRead = ['athlete','id', 'name', 'distance', 'moving_time', 'start_data_local', 'map', 'total_elevation_gain']
+propertiesToBeRead = ['athlete','id', 'name', 'distance', 'moving_time', 'start_data_local', 'map', 'total_elevation_gain', 'type']
 
 def populateDatabase():
     with open('./importedData.json') as f:
@@ -36,40 +36,72 @@ def populateDatabase():
         activity_start_date_local = eachActivity['start_date_local']
         activity_map = eachActivity['map']['summary_polyline']
         activity_total_elevation_gain = eachActivity['total_elevation_gain']
-        writeToDatabase(athlete_id, activity_id , activity_name ,activity_distance ,activity_moving_time ,activity_start_date_local ,activity_map ,activity_total_elevation_gain )
+        activity_type= eachActivity['type']
+        writeToDatabase(athlete_id, activity_id , activity_name ,activity_distance ,activity_moving_time ,activity_start_date_local ,activity_map ,activity_total_elevation_gain,activity_type )
 
 
-propertiesToBeStored = ['name', 'distance', 'moving_time', 'start_data_local', 'map', 'total_elevation_gain']
+propertiesToBeStored = ['name', 'distance', 'moving_time', 'start_data_local', 'map', 'total_elevation_gain', 'type']
 
-def writeToDatabase(athlete_id, activity_id , activity_name ,activity_distance ,activity_moving_time ,activity_start_date_local ,activity_map ,activity_total_elevation_gain ):
-    propertyValues = [activity_name ,activity_distance ,activity_moving_time ,activity_start_date_local ,activity_map ,activity_total_elevation_gain]
+def writeToDatabase(athlete_id, activity_id , activity_name ,activity_distance ,activity_moving_time ,activity_start_date_local ,activity_map ,activity_total_elevation_gain, activity_type ):
+    propertyValues = [activity_name ,activity_distance ,activity_moving_time ,activity_start_date_local ,activity_map ,activity_total_elevation_gain, activity_type]
     for index in range(0, len(propertiesToBeStored)):
         # record = Activity(athlete_id,activity_id, propertiesToBeStored[index], propertyValues[index])
         q = Activity.insert(athleteId=athlete_id,activityId=activity_id, activityFieldName=propertiesToBeStored[index], activityFieldValue=propertyValues[index])
         q.execute()
 
 
-def readAllAthleteActivities():
+def readAllAthleteActivities(currentSportType):
     allActivities = {}
-    rows=Activity.select()
-    for row in rows:
-        if(row.activityId in allActivities.keys()):
-            allActivities[row.activityId][row.activityFieldName] = row.activityFieldValue
-        else:
-            allActivities[row.activityId] = {
-                'name' : row.activityFieldValue, #because if first read, can cause issue later is order is messed up
-                'distance': '',
-                'moving_time': '',
-                'start_data_local': '',
-                'map': '',
-                'total_elevation_gain': ''
-            }
+    if(currentSportType != 'All'):
+        rows=Activity.select().where(Activity.activityFieldValue == currentSportType)
+        actvityRowIds = []
+        for row in rows:
+            actvityRowIds.append(row.activityId)
+        
+        for eachId in actvityRowIds:
+            rows = Activity.select().where(Activity.activityId == eachId)
+            for row in rows:
+                if(row.activityId in allActivities.keys()):
+                    allActivities[row.activityId][row.activityFieldName] = row.activityFieldValue
+                else:
+                    allActivities[row.activityId] = {
+                        'name' : row.activityFieldValue, #because if first read, can cause issue later is order is messed up
+                        'distance': '',
+                        'moving_time': '',
+                        'start_data_local': '',
+                        'map': '',
+                        'total_elevation_gain': '',
+                        'type': ''
+                    }
+        
+        allActivitiesReturn = []
+        for each in allActivities.keys():
+            allActivitiesReturn.append(allActivities[each])
     
-    allActivitiesReturn = []
-    for each in allActivities.keys():
-        allActivitiesReturn.append(allActivities[each])
+        return allActivitiesReturn
 
-    return allActivitiesReturn
+
+    else:
+        rows=Activity.select()
+        for row in rows:
+            if(row.activityId in allActivities.keys()):
+                allActivities[row.activityId][row.activityFieldName] = row.activityFieldValue
+            else:
+                allActivities[row.activityId] = {
+                    'name' : row.activityFieldValue, #because if first read, can cause issue later is order is messed up
+                    'distance': '',
+                    'moving_time': '',
+                    'start_data_local': '',
+                    'map': '',
+                    'total_elevation_gain': '',
+                    'type': ''
+                }
+        
+        allActivitiesReturn = []
+        for each in allActivities.keys():
+            allActivitiesReturn.append(allActivities[each])
+
+        return allActivitiesReturn
 
 def readSingleAthleteActivities():
     pass
@@ -78,4 +110,4 @@ def readSingleAthleteActivities():
 #####
 # setupAthleteActivityTable()
 # populateDatabase()
-readAllAthleteActivities()
+# print(readAllAthleteActivities('Ride'))

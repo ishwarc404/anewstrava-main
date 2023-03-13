@@ -7,7 +7,6 @@ import axios from "axios";
 
 
 var polyline = require('@mapbox/polyline');
-
 var tempActivityData = {
   "resource_state": 2,
   "athlete": {
@@ -89,7 +88,6 @@ var finalimageURL;
 var activityFeedActivities = []
 var reloadActivities = false
 
-
 function convertSeconds(value) {
 
   if (!value) {
@@ -107,9 +105,20 @@ function convertSeconds(value) {
   return hours + minutes + seconds; // Return is HH : MM : SS
 }
 
+var currentSportType = 'All';
+
 
 function ActivityFeed() {
+
+
   const [, setState] = useState();
+
+  function changeSportType(value){
+    currentSportType = value;
+    setState({});
+  }
+
+
 
   useEffect(() => {
 
@@ -117,12 +126,13 @@ function ActivityFeed() {
     axios.get('http://127.0.0.1:5000/getAllActivities', {
       headers: {
         "Access-Control-Allow-Origin": "*"
-      }
+      },
+      params: { currentSportType: currentSportType }
     }).then((response) => {
       var lengthOfData = response.data.length;
+      activityFeedActivities = []
       for (var i = 0; i < lengthOfData; i++) {
         tempActivityData = response.data[i];
-        console.log(tempActivityData)
         var activityURL = `https://strava.com/activities/${tempActivityData['id']}`
         var polyline_encode = encodeURIComponent(tempActivityData['map']);
         if (polyline_encode != '') {
@@ -132,6 +142,7 @@ function ActivityFeed() {
           finalimageURL = false;
         }
 
+        
         activityFeedActivities.push(
 
           <div className='Activity'>
@@ -163,17 +174,21 @@ function ActivityFeed() {
       }
       setState({});
     });
-  }, [])
+  }, [currentSportType])
 
   return (
     <div className='ActivityFeed'>
       <div className='d-flex justify-content-start filters-div'>
         <div>
-          <select className='activity-select' name="activity-names" id="activity-names">
-            <option value="all">All Sports  &nbsp;</option>
-            <option value="run">Run</option>
-            <option value="bike">Bike</option>
-            <option value="swim">Swim</option>
+          <select className='activity-select' name="activity-names" id="activity-names"
+            onChange={(event) => changeSportType(event.target.value)}
+            value={currentSportType}
+            >
+            <option value="All">All Sports  &nbsp;</option>
+            <option value="Run">Run</option>
+            <option value="Ride">Bike</option>
+            <option value="Swim">Swim</option>
+            <option value="Workout">Workout</option>
           </select>
         </div>
         <div>

@@ -191,8 +191,9 @@ function ActivityFeed() {
             <option value="commutes">Commutes</option>
           </select>
         </div>
+        <div><button className='search-button'>SEARCH</button></div>
       </div>
-      <div>
+      <div className='activity-feed-items'>
       {activityFeedActivities.map((value, index) => {
         return <div key={index}>{value}</div>
       })}

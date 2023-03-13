@@ -104,7 +104,7 @@ function App() {
       </div>
       <div className='d-flex justify-content-around summit-count'>
         <div> <div className='summit-count-label'>Last 4 Weeks</div>
-        <div className='summit-count-value'>{countOccurrences(summitHistory, false)}</div>
+        <div className='summit-count-value'>{countOccurrences(summitHistoryValues[currentSummit], true)}</div>
         <div className='summit-count-label-2'>Total Activities</div></div>
        
        <div className='summit-buttons'>

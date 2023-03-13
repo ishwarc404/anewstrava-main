@@ -137,7 +137,7 @@ function ActivityFeed() {
             <div className='d-flex justify-content-start'>
               <div>
                 <img className='activity-div-profile-athlete-image' src={ishwarprofileimage}></img>
-                <img className='activity-div-athlete-badge' src={premiumBadge}></img>
+                {/* <img className='activity-div-athlete-badge' src={premiumBadge}></img> */}
               </div>
               <div className='activity-div-profile-info'>
                 <div className='activity-div-profile-name'><b>Ishwar Choudhary</b></div>
@@ -166,7 +166,7 @@ function ActivityFeed() {
 
   return (
     <div className='ActivityFeed'>
-      <div className='d-flex justify-content-start'>
+      <div className='d-flex justify-content-start filters-div'>
         <div>
           <select className='activity-select' name="activity-names" id="activity-names">
             <option value="all">All Sports  &nbsp;</option>
@@ -192,9 +192,11 @@ function ActivityFeed() {
           </select>
         </div>
       </div>
+      <div>
       {activityFeedActivities.map((value, index) => {
         return <div key={index}>{value}</div>
       })}
+      </div>
       {/* <div className='Activity'>
         <div className='d-flex justify-content-start'>
           <div>

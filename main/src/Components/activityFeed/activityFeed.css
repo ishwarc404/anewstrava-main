@@ -8,6 +8,16 @@
     line-height: 18px;
     margin: 0px 24px 14px 0px;
     padding: 0px 0px 0px;
+    scroll-behavior: auto;
+    overflow: auto;  /* code added */
+    margin-top: 25px;
+}
+
+.filters-div {
+    position: fixed;
+    top:90px;
+    z-index: 1000;
+    overflow: hidden;
 }
 
 .Activity {

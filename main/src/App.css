@@ -8,7 +8,7 @@
     /* left: 15vw; */
     /* scr */
     /* width: 1000vw; */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .Home{
@@ -19,7 +19,7 @@
     /* background-size: 2000px 1261.2px; */
     /* background-size: 100vw auto; */
     padding-top: 10vh;
-    height:auto;
+    height: 100vh;
     background-color: rgb(247, 247, 250);
 
 }

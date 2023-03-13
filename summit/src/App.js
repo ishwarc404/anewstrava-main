@@ -13,7 +13,7 @@ function App() {
   
   return (
     <div className='SummitApp'>
-      <div className='summit-header'>SUMMMIT</div>
+      <div className='summit-header'>SUMMIT</div>
       <div>
         <select className='summit-select' name="summit-names" id="summit-names">
           <option value="green">Green Mountain</option>

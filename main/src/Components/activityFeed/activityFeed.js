@@ -3,6 +3,7 @@ import './activityFeed.css';
 import React, { useState, useEffect } from 'react';
 import ishwarprofileimage from '../../assets/ishwarprofileimage.jpeg'
 import premiumBadge from '../../assets/badges.svg';
+import axios from "axios";
 
 
 var polyline = require('@mapbox/polyline');
@@ -91,10 +92,17 @@ function ActivityFeed() {
 
   useEffect(() => {
 
-    var polyline_encode = encodeURIComponent(tempActivityData['map']['summary_polyline']);
-    finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
-    console.log(finalimageURL)
-    setState({});
+
+    axios.get('http://127.0.0.1:5000/getAllActivities').then((response) => {
+      tempActivityData = response.data[0];
+      console.log
+      setState({});
+      var polyline_encode = encodeURIComponent(tempActivityData['map']['summary_polyline']);
+      finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
+      console.log(finalimageURL)
+      setState({});
+    });
+
     // console.log(polyline.encode(polyline.decode(tempActivityData['map']['summary_polyline'])));
 
   }, [])

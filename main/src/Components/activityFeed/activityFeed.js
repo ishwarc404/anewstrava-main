@@ -107,7 +107,7 @@ function convertSeconds(value) {
 
 var currentSportType = 'All';
 var currentAthleteId = 43290018;
-var currentActivityType = 'all';  //All, my, following, followers
+var currentActivityType = 'following';  //All, my, following, followers
 
 
 function ActivityFeed() {
@@ -204,20 +204,21 @@ function ActivityFeed() {
           <select className='activity-select' name="activity-names" id="activity-names"
             onChange={(event) => changeActivityType(event.target.value)}
             value={currentActivityType}>
-            <option value="all">All Activities</option>
-            <option value="my">My Activities</option>
+            {/* <option value="all">All Activities</option> */}
             <option value="following">Following</option>
+            <option value="my">My Activities</option>
+            {/* <option value="following">Following</option> */}
             <option value="followers">Followers</option>
           </select>
         </div>
-        <div>
+        {/* <div>
           <select className='activity-select' name="activity-names" id="activity-names">
             <option value="alltypes">All Types</option>
             <option value="workouts">Workouts</option>
             <option value="races">Races</option>
             <option value="commutes">Commutes</option>
           </select>
-        </div>
+        </div> */}
         {/* <div><button className='search-button'>SEARCH</button></div> */}
       </div>
       <div className='activity-feed-items'>

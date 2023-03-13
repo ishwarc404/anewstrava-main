@@ -28,6 +28,18 @@ def getActivities(accessToken):
 
 
 
-activitiesResponse = getActivities(refresh())
-print(activitiesResponse)
+# activitiesResponse = getActivities(refresh())
+# print(activitiesResponse)
 
+# def getActivitiesOther(accessToken):
+#     ids = [8707160578,7477808350,7477666388,7224400825,7209956931]
+#     for each in ids:
+#         past30ActivitiesURL = "https://www.strava.com/api/v3/activities/{{}}".format(each)
+#         headers = {
+#         'Authorization': "Bearer {}".format(accessToken),
+#         }
+
+#         activitiesResponse = requests.get(past30ActivitiesURL,headers=headers)
+#         return json.loads(activitiesResponse.text)
+
+# print(getActivitiesOther(refresh()))

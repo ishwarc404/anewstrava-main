@@ -5,14 +5,16 @@ import dbaccess
 from flask_cors import CORS,cross_origin
 cors = CORS(app)
 from flask import request
+import random
+
 #first start server, then 
 #open -a Google\ Chrome --args --disable-web-security --/
 
 allActivities = []
 
-def queryAllActivities(currentSportType):
+def queryAllActivities(currentSportType, currentAthleteId, currentActivityType):
 
-    return dbaccess.readAllAthleteActivities(currentSportType)
+    return dbaccess.readAllAthleteActivities(currentSportType,currentAthleteId, currentActivityType)
 
 
     #commenting the following out and switching to db
@@ -27,8 +29,10 @@ def queryAllActivities(currentSportType):
 @cross_origin()
 def getAllActivities():
     currentSportType = request.args.get('currentSportType')
+    currentAthleteId = request.args.get('currentAthleteId')
+    currentActivityType = request.args.get('currentActivityType')
     print(currentSportType)
-    response = json.dumps(queryAllActivities(currentSportType))
+    response = json.dumps(queryAllActivities(currentSportType, currentAthleteId, currentActivityType))
     return response
     
 

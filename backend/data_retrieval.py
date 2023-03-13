@@ -18,7 +18,7 @@ def refresh():
 
 def getActivities(accessToken):
     seconds = time.time()
-    past30ActivitiesURL = "https://www.strava.com/api/v3/athlete/activities?before={}&age=1&per_page=30".format(seconds)
+    past30ActivitiesURL = "https://www.strava.com/api/v3/athlete/activities?before={}&page=2&per_page=30".format(seconds)
     headers = {
     'Authorization': "Bearer {}".format(accessToken),
     }

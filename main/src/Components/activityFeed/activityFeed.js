@@ -86,7 +86,7 @@ var tempActivityData = {
 var pointsArray = []
 var finalimageURL;
 var activityFeedActivities = []
-var reloadActivities = false
+
 
 function convertSeconds(value) {
 
@@ -106,6 +106,8 @@ function convertSeconds(value) {
 }
 
 var currentSportType = 'All';
+var currentAthleteId = 43290018;
+var currentActivityType = 'all';  //All, my, following, followers
 
 
 function ActivityFeed() {
@@ -118,6 +120,11 @@ function ActivityFeed() {
     setState({});
   }
 
+  function changeActivityType(value){
+    currentActivityType = value;
+    setState({});
+  }
+
 
 
   useEffect(() => {
@@ -127,7 +134,9 @@ function ActivityFeed() {
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
-      params: { currentSportType: currentSportType }
+      params: { currentSportType: currentSportType,
+      currentAthleteId: currentAthleteId,
+      currentActivityType: currentActivityType}
     }).then((response) => {
       var lengthOfData = response.data.length;
       activityFeedActivities = []
@@ -148,11 +157,11 @@ function ActivityFeed() {
           <div className='Activity'>
             <div className='d-flex justify-content-start'>
               <div>
-                <img className='activity-div-profile-athlete-image' src={ishwarprofileimage}></img>
+                <img className='activity-div-profile-athlete-image' src={tempActivityData['image']}></img>
                 {/* <img className='activity-div-athlete-badge' src={premiumBadge}></img> */}
               </div>
               <div className='activity-div-profile-info'>
-                <div className='activity-div-profile-name'><b>Ishwar Choudhary</b></div>
+                <div className='activity-div-profile-name'><b>{tempActivityData['athleteName']}</b></div>
                 <div className='activity-div-profile-location'>{tempActivityData['start_date_local']} · Boulder, Colorado</div>
                 <div className='activity-div-activity-name'>
                   <a className='activity-div-activity-url' href={activityURL} target="_blank">{tempActivityData['name']}</a></div>
@@ -174,7 +183,7 @@ function ActivityFeed() {
       }
       setState({});
     });
-  }, [currentSportType])
+  }, [currentSportType,currentActivityType])
 
   return (
     <div className='ActivityFeed'>
@@ -192,9 +201,11 @@ function ActivityFeed() {
           </select>
         </div>
         <div>
-          <select className='activity-select' name="activity-names" id="activity-names">
-            <option value="allfriends">All Activities</option>
-            <option value="following">My Activities</option>
+          <select className='activity-select' name="activity-names" id="activity-names"
+            onChange={(event) => changeActivityType(event.target.value)}
+            value={currentActivityType}>
+            <option value="all">All Activities</option>
+            <option value="my">My Activities</option>
             <option value="following">Following</option>
             <option value="followers">Followers</option>
           </select>
@@ -207,7 +218,7 @@ function ActivityFeed() {
             <option value="commutes">Commutes</option>
           </select>
         </div>
-        <div><button className='search-button'>SEARCH</button></div>
+        {/* <div><button className='search-button'>SEARCH</button></div> */}
       </div>
       <div className='activity-feed-items'>
       {activityFeedActivities.map((value, index) => {

@@ -113,15 +113,19 @@ function ActivityFeed() {
   useEffect(() => {
 
 
-    axios.get('http://127.0.0.1:5000/getAllActivities').then((response) => {
+    axios.get('http://127.0.0.1:5000/getAllActivities', {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      }
+    }).then((response) => {
       var lengthOfData = response.data.length;
       for (var i = 0; i < lengthOfData; i++) {
         tempActivityData = response.data[i];
 
         var activityURL = `https://strava.com/activities/${tempActivityData['id']}`
         var polyline_encode = encodeURIComponent(tempActivityData['map']['summary_polyline']);
-        if(polyline_encode != ''){
-        finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
+        if (polyline_encode != '') {
+          finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
         }
         else {
           finalimageURL = false;
@@ -137,7 +141,7 @@ function ActivityFeed() {
               </div>
               <div className='activity-div-profile-info'>
                 <div className='activity-div-profile-name'><b>Ishwar Choudhary</b></div>
-                <div className='activity-div-profile-location'>Today at 9:01 AM · Boulder, Colorado</div>
+                <div className='activity-div-profile-location'>{tempActivityData['start_date_local']} · Boulder, Colorado</div>
                 <div className='activity-div-activity-name'>
                   <a className='activity-div-activity-url' href={activityURL} target="_blank">{tempActivityData['name']}</a></div>
                 <div className='activity-div-activity-decription'>{tempActivityData['description']}</div>

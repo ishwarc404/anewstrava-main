@@ -86,6 +86,26 @@ var tempActivityData = {
 // https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(-87.321536,36.584454),pin-s-b+000(-104.793676,38.749513),path-5+f44-0.5(}kh~Ez{}sO|HUuHmj@uhHbOyAla@kisAdelC|aMf~w@egO|uaAahfBr{|@w_@sAozkCcwFsp@v]__w@`hjFjf@bdCkaJhmzAiyXtzb@fJ|{@{p[|~yErtBdacE{x^vkvHrZfuKo[tpBfxSrcuBocGpi_AqhCvjb@wgAvfsDhyc@fkrD~mD~bkDayD~ywCsui@vjmEoyBpk|AiOhHrvEdueApda@huoA|v[zuhFsySvwaAvbD`wqHxXpwDYj@riJULheEfXh^tdAj~I`^gI`hAkEY~@kHseBlGyC^kA)/auto/500x300?access_token=TOKEN
 var pointsArray = []
 var finalimageURL;
+var activityFeedActivities = []
+
+
+function convertSeconds(value) {
+
+  if (!value) {
+    return "";
+  }
+  const sec = parseInt(value, 10); // convert value to number if it's string
+  let hours = Math.floor(sec / 3600); // get hours
+  let minutes = Math.floor((sec - (hours * 3600)) / 60); // get minutes
+  let seconds = sec - (hours * 3600) - (minutes * 60); //  get seconds
+
+  if (hours == 0) { hours = ""; } else { hours = hours + "hrs "; }
+  if (minutes == 0) { minutes = ""; } else { minutes = minutes + " mins "; }
+  if (seconds == 0) { seconds = ""; } else { seconds = seconds + " secs"; }
+
+  return hours + minutes + seconds; // Return is HH : MM : SS
+}
+
 
 function ActivityFeed() {
   const [, setState] = useState();
@@ -94,17 +114,50 @@ function ActivityFeed() {
 
 
     axios.get('http://127.0.0.1:5000/getAllActivities').then((response) => {
-      tempActivityData = response.data[0];
-      console.log
-      setState({});
-      var polyline_encode = encodeURIComponent(tempActivityData['map']['summary_polyline']);
-      finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
-      console.log(finalimageURL)
+      var lengthOfData = response.data.length;
+      for (var i = 0; i < lengthOfData; i++) {
+        tempActivityData = response.data[i];
+
+        var activityURL = `https://strava.com/activities/${tempActivityData['id']}`
+        var polyline_encode = encodeURIComponent(tempActivityData['map']['summary_polyline']);
+        if(polyline_encode != ''){
+        finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
+        }
+        else {
+          finalimageURL = false;
+        }
+
+        activityFeedActivities.push(
+
+          <div className='Activity'>
+            <div className='d-flex justify-content-start'>
+              <div>
+                <img className='activity-div-profile-athlete-image' src={ishwarprofileimage}></img>
+                <img className='activity-div-athlete-badge' src={premiumBadge}></img>
+              </div>
+              <div className='activity-div-profile-info'>
+                <div className='activity-div-profile-name'><b>Ishwar Choudhary</b></div>
+                <div className='activity-div-profile-location'>Today at 9:01 AM · Boulder, Colorado</div>
+                <div className='activity-div-activity-name'>
+                  <a className='activity-div-activity-url' href={activityURL} target="_blank">{tempActivityData['name']}</a></div>
+                <div className='activity-div-activity-decription'>{tempActivityData['description']}</div>
+                <div className='d-flex justify-content-start'>
+                  <div className='activity-div-info-part-parent-distance'><div className='activity-div-info-part-distance'>Distance</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['distance'] / 1000).toFixed(1) + ' km'}</div></div>
+                  <div className='activity-div-info-part-divider'></div>
+                  <div className='activity-div-info-part-parent-elev'><div className='activity-div-info-part-elev'>Elev Gain</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['total_elevation_gain']).toFixed(1) + ' m'}</div></div>
+                  <div className='activity-div-info-part-divider'></div>
+                  <div className='activity-div-info-part-parent-time'><div className='activity-div-info-part-time'>Time</div><div className='d-flex justify-content-center activity-info-part-number'>{convertSeconds(tempActivityData['moving_time'])}</div></div>
+                </div>
+              </div>
+            </div>
+            <div className='activity-map d-flex justify-content-center'>
+              <img src={finalimageURL} />
+            </div>
+          </div>
+        )
+      }
       setState({});
     });
-
-    // console.log(polyline.encode(polyline.decode(tempActivityData['map']['summary_polyline'])));
-
   }, [])
 
   return (
@@ -135,7 +188,10 @@ function ActivityFeed() {
           </select>
         </div>
       </div>
-      <div className='Activity'>
+      {activityFeedActivities.map((value, index) => {
+        return <div key={index}>{value}</div>
+      })}
+      {/* <div className='Activity'>
         <div className='d-flex justify-content-start'>
           <div>
             <img className='activity-div-profile-athlete-image' src={ishwarprofileimage}></img>
@@ -160,7 +216,7 @@ function ActivityFeed() {
         <div className='activity-map d-flex justify-content-center'>
           <img src={finalimageURL} />
         </div>
-      </div>
+      </div> */}
     </div>
 
   );

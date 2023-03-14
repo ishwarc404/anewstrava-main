@@ -31,7 +31,10 @@ def parsefile(filename):
             # elevation_values.append(float(elevation))
         if(each.strip()[0:6] == "<time>"):
             time = each.strip()[6:-12]
-            datetime_object = datetime.strptime(time, '%Y-%m-%dT%H:%M:%S')
+            try:
+                datetime_object = datetime.strptime(time, '%Y-%m-%dT%H:%M:%S')
+            except:
+                datetime_object = datetime.now()
             time = datetime_object
             # time_values.append(datetime_object)
         if(each.strip()[0:6] == "<trkpt"):
@@ -73,7 +76,7 @@ def parsefile(filename):
     print("Net distance: ", netdistance)
 
     activityPolyline = polyline.encode(polylinePoints)
-
+    print(activityPolyline)
     return ['Uploaded File', netdistance*1000, net_gain, 'default time return',activityPolyline]
 
     

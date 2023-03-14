@@ -126,6 +126,10 @@ function ActivityFeed(props) {
   }
 
 
+//https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(
+
+//)/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw
+
 
   useEffect(() => {
 

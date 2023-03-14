@@ -110,17 +110,17 @@ var currentAthleteId = 43290018;
 var currentActivityType = 'all';  //All, my, following, followers
 
 
-function ActivityFeed() {
+function ActivityFeed(props) {
 
 
   const [, setState] = useState();
 
-  function changeSportType(value){
+  function changeSportType(value) {
     currentSportType = value;
     setState({});
   }
 
-  function changeActivityType(value){
+  function changeActivityType(value) {
     currentActivityType = value;
     setState({});
   }
@@ -129,61 +129,110 @@ function ActivityFeed() {
 
   useEffect(() => {
 
-
-    axios.get('http://127.0.0.1:5000/getAllActivities', {
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      },
-      params: { currentSportType: currentSportType,
-      currentAthleteId: currentAthleteId,
-      currentActivityType: currentActivityType}
-    }).then((response) => {
-      var lengthOfData = response.data.length;
+    if (props.activityArray.length != 0) {
+      tempActivityData = props.activityArray[0]
+      var activityURL = `https://strava.com/activities/${tempActivityData['id']}`
       activityFeedActivities = []
-      for (var i = 0; i < lengthOfData; i++) {
-        tempActivityData = response.data[i];
-        var activityURL = `https://strava.com/activities/${tempActivityData['id']}`
-        var polyline_encode = encodeURIComponent(tempActivityData['map']);
-        if (polyline_encode != '') {
-          finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
-        }
-        else {
-          finalimageURL = false;
-        }
+      console.log(tempActivityData)
+      var polyline_encode = encodeURIComponent(tempActivityData['map']);
+      if (polyline_encode != '') {
+        finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
+      }
+      else {
+        finalimageURL = false;
+      }
 
-        
-        activityFeedActivities.push(
 
-          <div className='Activity'>
-            <div className='d-flex justify-content-start'>
-              <div>
-                <img className='activity-div-profile-athlete-image' src={tempActivityData['image']}></img>
-                {/* <img className='activity-div-athlete-badge' src={premiumBadge}></img> */}
-              </div>
-              <div className='activity-div-profile-info'>
-                <div className='activity-div-profile-name'><b>{tempActivityData['athleteName']}</b></div>
-                <div className='activity-div-profile-location'>{tempActivityData['start_data_local']} · Boulder, Colorado</div>
-                <div className='activity-div-activity-name'>
-                  <a className='activity-div-activity-url' href={activityURL} target="_blank">{tempActivityData['name']}</a></div>
-                <div className='activity-div-activity-decription'>{tempActivityData['description']}</div>
-                <div className='d-flex justify-content-start'>
-                  <div className='activity-div-info-part-parent-distance'><div className='activity-div-info-part-distance'>Distance</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['distance'] / 1000).toFixed(1) + ' km'}</div></div>
-                  <div className='activity-div-info-part-divider'></div>
-                  <div className='activity-div-info-part-parent-elev'><div className='activity-div-info-part-elev'>Elev Gain</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['total_elevation_gain']).toFixed(1) + ' m'}</div></div>
-                  <div className='activity-div-info-part-divider'></div>
-                  <div className='activity-div-info-part-parent-time'><div className='activity-div-info-part-time'>Time</div><div className='d-flex justify-content-center activity-info-part-number'>{convertSeconds(tempActivityData['moving_time'])}</div></div>
-                </div>
-              </div>
+      activityFeedActivities.push(
+
+        <div className='Activity'>
+          <div className='d-flex justify-content-start'>
+            <div>
+              <img className='activity-div-profile-athlete-image' src={tempActivityData['image']}></img>
+              {/* <img className='activity-div-athlete-badge' src={premiumBadge}></img> */}
             </div>
-            <div className='activity-map d-flex justify-content-center'>
-              <img src={finalimageURL} />
+            <div className='activity-div-profile-info'>
+              <div className='activity-div-profile-name'><b>{tempActivityData['athleteName']}</b></div>
+              <div className='activity-div-profile-location'>{tempActivityData['start_data_local']} · Boulder, Colorado</div>
+              <div className='activity-div-activity-name'>
+                <a className='activity-div-activity-url' href={activityURL} target="_blank">{tempActivityData['name']}</a></div>
+              <div className='activity-div-activity-decription'>{tempActivityData['description']}</div>
+              <div className='d-flex justify-content-start'>
+                <div className='activity-div-info-part-parent-distance'><div className='activity-div-info-part-distance'>Distance</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['distance'] / 1000).toFixed(1) +' km'}</div></div>
+                <div className='activity-div-info-part-divider'></div>
+                <div className='activity-div-info-part-parent-elev'><div className='activity-div-info-part-elev'>Elev Gain</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['total_elevation_gain']).toFixed(1) + ' m'}</div></div>
+                <div className='activity-div-info-part-divider'></div>
+                <div className='activity-div-info-part-parent-time'><div className='activity-div-info-part-time'>Time</div><div className='d-flex justify-content-center activity-info-part-number'>{convertSeconds(tempActivityData['moving_time'])}</div></div>
+              </div>
             </div>
           </div>
-        )
-      }
+          <div className='activity-map d-flex justify-content-center'>
+            <img src={finalimageURL} />
+          </div>
+        </div>
+      )
+
       setState({});
-    });
-  }, [currentSportType,currentActivityType])
+    }
+    else {
+
+      axios.get('http://127.0.0.1:5000/getAllActivities', {
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        },
+        params: {
+          currentSportType: currentSportType,
+          currentAthleteId: currentAthleteId,
+          currentActivityType: currentActivityType
+        }
+      }).then((response) => {
+        var lengthOfData = response.data.length;
+        activityFeedActivities = []
+        for (var i = 0; i < lengthOfData; i++) {
+          tempActivityData = response.data[i];
+          var activityURL = `https://strava.com/activities/${tempActivityData['id']}`
+          var polyline_encode = encodeURIComponent(tempActivityData['map']);
+          if (polyline_encode != '') {
+            finalimageURL = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/path-3+fc5200-1(${polyline_encode})/auto/550x400?access_token=pk.eyJ1IjoiaXNod2FyYzQwNCIsImEiOiJjbGY0czRwdTEwMDk2M3BqeGhxcmgxem55In0.es5t51shhzQiZqn7ldY9yw`
+          }
+          else {
+            finalimageURL = false;
+          }
+
+
+          activityFeedActivities.push(
+
+            <div className='Activity'>
+              <div className='d-flex justify-content-start'>
+                <div>
+                  <img className='activity-div-profile-athlete-image' src={tempActivityData['image']}></img>
+                  {/* <img className='activity-div-athlete-badge' src={premiumBadge}></img> */}
+                </div>
+                <div className='activity-div-profile-info'>
+                  <div className='activity-div-profile-name'><b>{tempActivityData['athleteName']}</b></div>
+                  <div className='activity-div-profile-location'>{tempActivityData['start_data_local']} · Boulder, Colorado</div>
+                  <div className='activity-div-activity-name'>
+                    <a className='activity-div-activity-url' href={activityURL} target="_blank">{tempActivityData['name']}</a></div>
+                  <div className='activity-div-activity-decription'>{tempActivityData['description']}</div>
+                  <div className='d-flex justify-content-start'>
+                    <div className='activity-div-info-part-parent-distance'><div className='activity-div-info-part-distance'>Distance</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['distance'] / 1000).toFixed(1) + ' km'}</div></div>
+                    <div className='activity-div-info-part-divider'></div>
+                    <div className='activity-div-info-part-parent-elev'><div className='activity-div-info-part-elev'>Elev Gain</div><div className='d-flex justify-content-center activity-info-part-number'>{parseFloat(tempActivityData['total_elevation_gain']).toFixed(1) + ' m'}</div></div>
+                    <div className='activity-div-info-part-divider'></div>
+                    <div className='activity-div-info-part-parent-time'><div className='activity-div-info-part-time'>Time</div><div className='d-flex justify-content-center activity-info-part-number'>{convertSeconds(tempActivityData['moving_time'])}</div></div>
+                  </div>
+                </div>
+              </div>
+              <div className='activity-map d-flex justify-content-center'>
+                <img src={finalimageURL} />
+              </div>
+            </div>
+          )
+        }
+        setState({});
+      });
+    }
+  }, [currentSportType, currentActivityType, props.activityArray])
 
   return (
     <div className='ActivityFeed'>
@@ -192,7 +241,7 @@ function ActivityFeed() {
           <select className='activity-select' name="activity-names" id="activity-names"
             onChange={(event) => changeSportType(event.target.value)}
             value={currentSportType}
-            >
+          >
             <option value="All">All Sports  &nbsp;</option>
             <option value="Run">Run</option>
             <option value="Ride">Bike</option>
@@ -222,9 +271,9 @@ function ActivityFeed() {
         {/* <div><button className='search-button'>SEARCH</button></div> */}
       </div>
       <div className='activity-feed-items'>
-      {activityFeedActivities.map((value, index) => {
-        return <div key={index}>{value}</div>
-      })}
+        {activityFeedActivities.map((value, index) => {
+          return <div key={index}>{value}</div>
+        })}
       </div>
       {/* <div className='Activity'>
         <div className='d-flex justify-content-start'>

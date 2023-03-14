@@ -6,7 +6,7 @@ from flask_cors import CORS,cross_origin
 cors = CORS(app)
 from flask import request
 import random
-
+import gpxparser
 #first start server, then 
 #open -a Google\ Chrome --args --disable-web-security --/
 
@@ -56,7 +56,21 @@ def upload_file():
     uploaded_file = request.files['gpxfile']
     print(uploaded_file)
     uploaded_file.save('./uploadedFiles/' + uploaded_file.filename)
-    return '200'
+    results = gpxparser.parsefile(uploaded_file.filename)
+
+    finalResult =  {
+    'name' : results[0],
+    "image": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/43290018/17643007/5/large.jpg",
+    'athleteName': 'Ishwar Choudhary',
+    'distance': results[1],
+    'moving_time': results[3],
+    'start_data_local': 'default date return',
+    'map': results[4],
+    'total_elevation_gain': results[2],
+    'type': 'Run'
+    }
+
+    return json.dumps([finalResult])
 
 
 if(__name__ == "__main__"):

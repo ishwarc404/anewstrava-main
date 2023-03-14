@@ -9,7 +9,7 @@ import strava from '../../assets/b&w.png';
 import searchicon from '../../assets/searchicon.png'
 import uploadicon from '../../assets/uploadicon.png'
 
-function Header() {
+function Header(props) {
 
   function upload() {
     document.getElementById("selectFile").click()
@@ -24,8 +24,9 @@ function Header() {
           'Content-Type': 'multipart/form-data',
           "Access-Control-Allow-Origin": "*"
         }
+    }).then((response) => {
+      props.recieveUploadedActivity(response.data);
     })
-
   }
 
 

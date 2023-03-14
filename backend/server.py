@@ -7,6 +7,8 @@ cors = CORS(app)
 from flask import request
 import random
 import gpxparser
+import random
+
 #first start server, then 
 #open -a Google\ Chrome --args --disable-web-security --/
 
@@ -15,7 +17,6 @@ allActivities = []
 def queryAllActivities(currentSportType, currentAthleteId, currentActivityType):
 
     return dbaccess.readAllAthleteActivities(currentSportType,currentAthleteId, currentActivityType)
-
 
     #commenting the following out and switching to db
     with open('./importedData.json') as f:
@@ -52,6 +53,7 @@ def getSummutCounts():
 
 @app.route('/uploadActivityFile', methods=['POST'])
 def upload_file():
+    activityName = request.args.get('activityName')
     print(request.files.keys())
     uploaded_file = request.files['gpxfile']
     print(uploaded_file)
@@ -59,7 +61,7 @@ def upload_file():
     results = gpxparser.parsefile(uploaded_file.filename)
 
     finalResult =  {
-    'name' : results[0],
+    'name' : activityName,
     "image": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/43290018/17643007/5/large.jpg",
     'athleteName': 'Ishwar Choudhary',
     'distance': results[1],
@@ -69,6 +71,12 @@ def upload_file():
     'total_elevation_gain': results[2],
     'type': 'Run'
     }
+
+    dbaccess.writeToDatabase(43290018, random.randint(1000,99999), 
+    activityName,
+    finalResult['image'], finalResult['athleteName'], finalResult['distance'],
+    finalResult['moving_time'], finalResult['start_data_local'], finalResult['map'], finalResult['total_elevation_gain'], finalResult['type']
+    )
 
     return json.dumps([finalResult])
 

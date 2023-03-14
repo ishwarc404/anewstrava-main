@@ -17,12 +17,16 @@ function Header(props) {
 
   function fileSelectHandler(event){
     console.log(event.target.files[0])
+    var activityName = prompt("Enter Activity Name")
     const formData = new FormData()
     formData.append("gpxfile", event.target.files[0]);
     axios.post('http://127.0.0.1:5000/uploadActivityFile', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           "Access-Control-Allow-Origin": "*"
+        },
+        params: {
+          activityName: activityName,
         }
     }).then((response) => {
       props.recieveUploadedActivity(response.data);

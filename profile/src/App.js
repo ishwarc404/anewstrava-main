@@ -69,13 +69,13 @@ function App() {
             <div className='info-part-divider'></div>
             <div className='info-part'><div className='info-part-name'>Followers</div><div className='d-flex justify-content-center info-part-number'>116</div></div>
             <div className='info-part-divider'></div>
-            <div className='info-part'><div className='info-part-name'>Activities</div><div className='d-flex justify-content-center info-part-number'>950</div></div>
+            <div className='info-part'><div className='info-part-name'>Activities</div><div className='d-flex justify-content-center info-part-number'>953</div></div>
 
           </div>
           <div className='info-latest-activity'>
             <div className='info-latest-activity-header'>Latest Activity</div>
             <div className='d-flex justify-content-start'>
-              <div className='info-latest-activity-acitivity-name'>Afternoon Run</div>
+              <div className='info-latest-activity-acitivity-name'>T-0 : THE DAY : STRAVA Interview</div>
               <div className='info-latest-activity-acitivity-dot'>&#8729;</div>
               <div className='info-latest-activity-acitivity-date'>Today</div>
             </div>

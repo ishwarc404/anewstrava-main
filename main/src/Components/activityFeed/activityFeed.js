@@ -102,7 +102,7 @@ function convertSeconds(value) {
   if (minutes == 0) { minutes = ""; } else { minutes = minutes + " mins "; }
   if (seconds == 0) { seconds = ""; } else { seconds = seconds + " secs"; }
 
-  return hours + minutes + seconds; // Return is HH : MM : SS
+  return hours ? hours : '' + minutes ? minutes : '' + seconds ? seconds : ''; // Return is HH : MM : SS
 }
 
 var currentSportType = 'All';
